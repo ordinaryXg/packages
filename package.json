@@ -1,0 +1,19 @@
+{
+  "name": "ordiry-package",
+  "main": "main.js",
+  "main-menu": {
+    "Panel/Ordinary": {
+      "message": "ordiry-package:open"
+    }
+  },
+  "panel": {
+    "main": "index.js",
+    "type": "dockable",
+    "title": "ordiry.X",
+    "width": 310,
+    "min-width":310,
+    "height": 500,
+    "min-height":500,
+    "max-height":500
+  }
+}
