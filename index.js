@@ -5,14 +5,10 @@
 
 // windows
 let arrMain = []; // main menu OBJ
-let arrty = []; // lable name
-let array = []; // windows and macOS accelerator
 let inputStr = []; // Input the content has been modified
 
 // macOS
 let _arrMain = []; // OBJ
-let _arrty = []; // lable name
-let _array = []; // macOS accelerator
 let _inputStr = []; // Input the content has been modified
 
 // other
@@ -137,8 +133,6 @@ Editor.Panel.extend({
                 if (_array[i] !== _inputStr[i]) console.log("macOS change");
             }
 
-            console.log(array, _array);
-            console.log(arrty, _arrty);
             console.log(arrMain, _arrMain);
             console.log(inputStr, _inputStr);
 
@@ -202,12 +196,12 @@ Editor.Panel.extend({
 
             storeData(err);
 
-            for (let i = 0; i < array.length; i++) {
-                this.SearchOrder(arrty[i], array[i]);
+            for (let i = 0; i < arrMain.length; i++) {
+                this.SearchOrder(arrMain[i].lable, arrMain[i].accelerator);
             }
 
-            for (let i = 0; i < _array.length; i++) {
-                this.SearchOrder(_arrty[i], _array[i], true);
+            for (let i = 0; i < _arrMain.length; i++) {
+                this.SearchOrder(_arrMain[i].lable, _arrMain[i].accelerator, true);
             }
 
             // Store the data
@@ -216,12 +210,8 @@ Editor.Panel.extend({
                     if (i === 'accelerator' && atr[i] !== null) {
 
                         if (contains(atr.role, macOS)) {
-                            _array.push(atr.accelerator);
-                            _arrty.push(atr.label);
                             _arrMain.push(atr);
                         } else {
-                            array.push(atr.accelerator);
-                            arrty.push(atr.label);
                             arrMain.push(atr);
                         }
 
@@ -269,7 +259,6 @@ Editor.Panel.extend({
         //
         let uiInput = document.createElement('input');
         uiInput.onkeyup = "val=val.replace(/[^\w=@&]|_/ig,'')";
-        uiInput.name = 'atttry';
         uiInput.className = 'input1';
         uiInput.value = arr;
         uiInputDiv.appendChild(uiInput);
